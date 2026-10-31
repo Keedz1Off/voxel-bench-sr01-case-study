@@ -1,0 +1,54 @@
+{
+  "project": "ETH-GLOBAL-ONLINE/voxel-bench",
+  "event": "ETHOnline 2026",
+  "finding": "SR-01",
+  "upstreamStatus": "closed",
+  "reviewDate": "2026-10-31",
+  "sourceSnapshots": {
+    "directIntroduced": "e1e531304b711462de9977fd0ab849b8f7ecd504",
+    "signedIntroduced": "75e6434167e6aa98f89c316f370cae47bb15026a",
+    "assessedVulnerable": "5015954e807783a9d6e68cff07984ce98556cfa0",
+    "implementedFix": "ba067ec240835cbc9e03bb991e644b75a1f30eb6",
+    "documentation": "2734fc4e31a6763986a62d5bdf2704e770c1c71d"
+  },
+  "releaseEvidence": "git ls-remote --tags returned no refs; no release-range claim",
+  "validation": {
+    "sourceReview": true,
+    "retainedHistoricalLogsInspected": true,
+    "newTargetTests": false,
+    "liveChainCalls": false,
+    "currentDeploymentVerification": false
+  },
+  "historicalResults": {
+    "originalPoC": "2 passed: direct capture plus legitimate signed-relay control",
+    "fixedSuite": "64 passing Solidity tests; upstream retained record"
+  },
+  "evidence": {
+    "docs/CONTRACT_AUDIT.md": {
+      "url": "https://github.com/ETH-GLOBAL-ONLINE/voxel-bench/blob/2734fc4e31a6763986a62d5bdf2704e770c1c71d/docs/CONTRACT_AUDIT.md",
+      "blobSha": "e07ce8e654ce6cd26db37811fad0a5d0e990ce24"
+    },
+    "AI_USAGE.md": {
+      "url": "https://github.com/ETH-GLOBAL-ONLINE/voxel-bench/blob/2734fc4e31a6763986a62d5bdf2704e770c1c71d/AI_USAGE.md",
+      "blobSha": "799e0cd279d22591bb142736b7938f18732e8fde"
+    },
+    "contracts/audit/evidence/historical-harness-summary.md": {
+      "url": "https://github.com/ETH-GLOBAL-ONLINE/voxel-bench/blob/2734fc4e31a6763986a62d5bdf2704e770c1c71d/contracts/audit/evidence/historical-harness-summary.md",
+      "blobSha": "9ee0fa5bddd4bd512602a95212d9a15cfd8dce3b"
+    },
+    "contracts/audit/evidence/historical-sr01-poc.log": {
+      "url": "https://github.com/ETH-GLOBAL-ONLINE/voxel-bench/blob/2734fc4e31a6763986a62d5bdf2704e770c1c71d/contracts/audit/evidence/historical-sr01-poc.log",
+      "blobSha": "8276efd576b1d390148fa0e24b2a13d2a4715030"
+    },
+    "contracts/audit/evidence/2026-09-12-hardhat-test.log": {
+      "url": "https://github.com/ETH-GLOBAL-ONLINE/voxel-bench/blob/2734fc4e31a6763986a62d5bdf2704e770c1c71d/contracts/audit/evidence/2026-09-12-hardhat-test.log",
+      "blobSha": "c8dcc08e7aa51b9673066ef3cdb601bb7cdf50ae"
+    }
+  },
+  "limitations": [
+    "Attester is a trusted provenance authority.",
+    "Historical PoC log does not demonstrate the signed-path variant in that same run.",
+    "No CVE, CVSS, bounty, prize or production-loss assertion.",
+    "No fresh deployment or end-to-end testnet verification."
+  ]
+}
