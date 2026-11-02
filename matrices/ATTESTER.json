@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "id": "ATTESTER",
+  "title": "Fixed trusted publication boundary",
+  "project": "Voxel Bench SR-01",
+  "scope": "Voxel Bench SR-01; original and fixed source snapshots with historical local records.",
+  "evidence_state": "Retained historical results and source analysis; per-row status and limits apply.",
+  "source_pins": "https://github.com/Keedz1Off/voxel-bench-sr01-case-study/blob/8ed2b57c5e51dd266fcb24844027444c86b06186/SOURCES.json",
+  "evidence_snapshot": {
+    "commit": "8ed2b57c5e51dd266fcb24844027444c86b06186",
+    "url": "https://github.com/Keedz1Off/voxel-bench-sr01-case-study/tree/8ed2b57c5e51dd266fcb24844027444c86b06186"
+  },
+  "interpretation": "This matrix indexes existing evidence. Rows are not additional tests, and no structural or security closure is inferred from a PASS count.",
+  "rows": [
+    {
+      "id": "VX-ATTESTER",
+      "boundary": "Public claimant -> trusted publication relay",
+      "invariant": "Publication must require the attester and eligible craft provenance.",
+      "scenario": "Restrict both contract publication routes; verify claimant eligibility in the agent.",
+      "oracle": "Implemented fix source, regression source and retained fixed-suite output.",
+      "observed": "Upstream implemented the attester boundary and records SR-01 closed; retained suite records 64 passes.",
+      "status": "upstream_fix_source_and_historical_results_reviewed",
+      "evidence": [
+        {
+          "url": "https://github.com/Keedz1Off/voxel-bench-sr01-case-study/blob/8ed2b57c5e51dd266fcb24844027444c86b06186/CASE-STUDY.md"
+        },
+        {
+          "url": "https://github.com/Keedz1Off/voxel-bench-sr01-case-study/blob/8ed2b57c5e51dd266fcb24844027444c86b06186/SOURCES.json"
+        }
+      ],
+      "limits": "The attester remains trusted; current deployment and full app exploit chain were not revalidated."
+    }
+  ]
+}

@@ -1,11 +1,16 @@
 {
   "schema_version": 1,
-  "prepared_on": "2026-11-02",
-  "scope": "Index of retained historical evidence and source review; no new target execution.",
-  "interpretation": "Each row is an indexed scenario, not an additional test or claim of complete coverage. Status describes the evidence within its stated limits.",
-  "path_base": "repository_root",
+  "id": "AUTHORSHIP",
+  "title": "Recipe claim and wallet signature",
   "project": "Voxel Bench SR-01",
-  "source_pins": "SOURCES.json",
+  "scope": "Voxel Bench SR-01; original and fixed source snapshots with historical local records.",
+  "evidence_state": "Retained historical results and source analysis; per-row status and limits apply.",
+  "source_pins": "https://github.com/Keedz1Off/voxel-bench-sr01-case-study/blob/8ed2b57c5e51dd266fcb24844027444c86b06186/SOURCES.json",
+  "evidence_snapshot": {
+    "commit": "8ed2b57c5e51dd266fcb24844027444c86b06186",
+    "url": "https://github.com/Keedz1Off/voxel-bench-sr01-case-study/tree/8ed2b57c5e51dd266fcb24844027444c86b06186"
+  },
+  "interpretation": "This matrix indexes existing evidence. Rows are not additional tests, and no structural or security closure is inferred from a PASS count.",
   "rows": [
     {
       "id": "VX-DIRECT",
@@ -17,10 +22,10 @@
       "status": "historical_finding_fixed_upstream",
       "evidence": [
         {
-          "file": "CASE-STUDY.md"
+          "url": "https://github.com/Keedz1Off/voxel-bench-sr01-case-study/blob/8ed2b57c5e51dd266fcb24844027444c86b06186/CASE-STUDY.md"
         },
         {
-          "file": "SOURCES.json"
+          "url": "https://github.com/Keedz1Off/voxel-bench-sr01-case-study/blob/8ed2b57c5e51dd266fcb24844027444c86b06186/SOURCES.json"
         },
         {
           "url": "https://github.com/ETH-GLOBAL-ONLINE/voxel-bench/blob/2734fc4e31a6763986a62d5bdf2704e770c1c71d/contracts/audit/evidence/historical-sr01-poc.log"
@@ -38,10 +43,10 @@
       "status": "source_supported_variant_with_fixed_regression_coverage",
       "evidence": [
         {
-          "file": "CASE-STUDY.md"
+          "url": "https://github.com/Keedz1Off/voxel-bench-sr01-case-study/blob/8ed2b57c5e51dd266fcb24844027444c86b06186/CASE-STUDY.md"
         },
         {
-          "file": "SOURCES.json"
+          "url": "https://github.com/Keedz1Off/voxel-bench-sr01-case-study/blob/8ed2b57c5e51dd266fcb24844027444c86b06186/SOURCES.json"
         }
       ],
       "limits": "The original preserved PoC log does not execute this self-signed attack variant."
@@ -56,31 +61,13 @@
       "status": "historical_control_passed",
       "evidence": [
         {
-          "file": "CASE-STUDY.md"
+          "url": "https://github.com/Keedz1Off/voxel-bench-sr01-case-study/blob/8ed2b57c5e51dd266fcb24844027444c86b06186/CASE-STUDY.md"
         },
         {
           "url": "https://github.com/ETH-GLOBAL-ONLINE/voxel-bench/blob/2734fc4e31a6763986a62d5bdf2704e770c1c71d/contracts/audit/evidence/historical-sr01-poc.log"
         }
       ],
       "limits": "A valid relay is distinct from an attacker's independent first claim."
-    },
-    {
-      "id": "VX-ATTESTER",
-      "boundary": "Public claimant -> trusted publication relay",
-      "invariant": "Publication must require the attester and eligible craft provenance.",
-      "scenario": "Restrict both contract publication routes; verify claimant eligibility in the agent.",
-      "oracle": "Implemented fix source, regression source and retained fixed-suite output.",
-      "observed": "Upstream implemented the attester boundary and records SR-01 closed; retained suite records 64 passes.",
-      "status": "upstream_fix_source_and_historical_results_reviewed",
-      "evidence": [
-        {
-          "file": "CASE-STUDY.md"
-        },
-        {
-          "file": "SOURCES.json"
-        }
-      ],
-      "limits": "The attester remains trusted; current deployment and full app exploit chain were not revalidated."
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "format": "matrix-first portfolio package",
+  "date": "2026-11-02",
+  "scope": "Documentation reorganisation; no new target tests",
+  "evidence_snapshot": "8ed2b57c5e51dd266fcb24844027444c86b06186",
+  "matrix_count": 2,
+  "files": {
+    "matrices/AUTHORSHIP.json": {
+      "bytes": 3951,
+      "sha256": "c33936a89af7b32b3c7403fd018f34c41c4d710486cf77acb638d36157bc6b3f"
+    },
+    "matrices/ATTESTER.json": {
+      "bytes": 1901,
+      "sha256": "569a7e767dcd4e7ef54ad6bef736c5825b808776f85811ed9d563ebf3cdfa261"
+    },
+    "README.md": {
+      "bytes": 1692,
+      "sha256": "a234adfda2e0d59431a139ab450b3a11671901e2c9cfcff5396e38139fbfea91"
+    }
+  }
+}

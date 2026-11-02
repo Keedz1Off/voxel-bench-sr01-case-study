@@ -8,10 +8,17 @@
 - **Fix:** trusted-attester publication plus private craft-provenance checks. The attester remains trusted.
 - **Evidence:** preserved direct-path PoC, fixed regression source and a historical 64-pass Solidity suite. The self-signed variant has source/regression support, not a fresh attack execution here.
 
-## Evidence and details
+**Flow:** Recipe ID → authorship claim → recorded author → future royalty credits.
 
-[Boundary matrix](matrices/boundaries.json) · [Flow](FLOW.md) · [Case study](CASE-STUDY.md) · [Pinned sources](SOURCES.json)
+## Matrices
 
-[Upstream acknowledgement](https://github.com/ETH-GLOBAL-ONLINE/voxel-bench/blob/2734fc4e31a6763986a62d5bdf2704e770c1c71d/docs/CONTRACT_AUDIT.md#findings) · [Implemented fix](https://github.com/ETH-GLOBAL-ONLINE/voxel-bench/commit/ba067ec240835cbc9e03bb991e644b75a1f30eb6) · [File map](READING-GUIDE.md) · [Web3 portfolio](https://github.com/Keedz1Off/web3-security-portfolio).
+| Boundary | JSON |
+| --- | --- |
+| Recipe claim and wallet signature | [AUTHORSHIP](matrices/AUTHORSHIP.json) |
+| Fixed trusted publication boundary | [ATTESTER](matrices/ATTESTER.json) |
 
-Historical local evidence and AI-assisted source review; no new target execution in this edit.
+Read each row as: **invariant → scenario → oracle → observation → status → evidence → limit**.
+
+[Detailed report, tests, logs and source pins](https://github.com/Keedz1Off/voxel-bench-sr01-case-study/tree/8ed2b57c5e51dd266fcb24844027444c86b06186) are preserved in the pinned evidence snapshot. Matrix links open the exact supporting records.
+
+Voxel Bench SR-01; original and fixed source snapshots with historical local records. Independent, AI-assisted work. Documentation reorganisation only; no new target tests. [File inventory](package-manifest.json).
