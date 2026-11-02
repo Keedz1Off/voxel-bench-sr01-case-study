@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "prepared_on": "2026-11-02",
+  "scope": "Index of retained historical evidence and source review; no new target execution.",
+  "interpretation": "Each row is an indexed scenario, not an additional test or claim of complete coverage. Status describes the evidence within its stated limits.",
+  "path_base": "repository_root",
+  "project": "Voxel Bench SR-01",
+  "source_pins": "SOURCES.json",
+  "rows": [
+    {
+      "id": "VX-DIRECT",
+      "boundary": "Recipe ID knowledge -> author registration",
+      "invariant": "Knowing an unclaimed ID alone must not authorize an outsider to become its author.",
+      "scenario": "Observer submits a direct publication claim before the creator.",
+      "oracle": "Recorded author, creator's later claim, and future royalty attribution in the retained PoC.",
+      "observed": "Preserved direct-path PoC passed, demonstrating the original capture.",
+      "status": "historical_finding_fixed_upstream",
+      "evidence": [
+        {
+          "file": "CASE-STUDY.md"
+        },
+        {
+          "file": "SOURCES.json"
+        },
+        {
+          "url": "https://github.com/ETH-GLOBAL-ONLINE/voxel-bench/blob/2734fc4e31a6763986a62d5bdf2704e770c1c71d/contracts/audit/evidence/historical-sr01-poc.log"
+        }
+      ],
+      "limits": "Favorable ordering needed; no reliable mempool race, production loss or fresh execution here."
+    },
+    {
+      "id": "VX-SIGNED",
+      "boundary": "Wallet consent -> recipe provenance",
+      "invariant": "A valid claimant signature must not be treated as proof of recipe ownership.",
+      "scenario": "Claimant signs their own first claim for someone else's unregistered ID.",
+      "oracle": "Vulnerable source and fixed regression source, separated from the retained direct-path PoC.",
+      "observed": "Original source accepts valid self-signature without provenance; fixed routes require the attester.",
+      "status": "source_supported_variant_with_fixed_regression_coverage",
+      "evidence": [
+        {
+          "file": "CASE-STUDY.md"
+        },
+        {
+          "file": "SOURCES.json"
+        }
+      ],
+      "limits": "The original preserved PoC log does not execute this self-signed attack variant."
+    },
+    {
+      "id": "VX-RELAY-CONTROL",
+      "boundary": "Relayer identity -> signed author",
+      "invariant": "Relaying a legitimate author's signature must credit that author, not the relayer.",
+      "scenario": "Attacker relays the legitimate author's valid signature.",
+      "oracle": "Retained signed-relay control output.",
+      "observed": "Control passed.",
+      "status": "historical_control_passed",
+      "evidence": [
+        {
+          "file": "CASE-STUDY.md"
+        },
+        {
+          "url": "https://github.com/ETH-GLOBAL-ONLINE/voxel-bench/blob/2734fc4e31a6763986a62d5bdf2704e770c1c71d/contracts/audit/evidence/historical-sr01-poc.log"
+        }
+      ],
+      "limits": "A valid relay is distinct from an attacker's independent first claim."
+    },
+    {
+      "id": "VX-ATTESTER",
+      "boundary": "Public claimant -> trusted publication relay",
+      "invariant": "Publication must require the attester and eligible craft provenance.",
+      "scenario": "Restrict both contract publication routes; verify claimant eligibility in the agent.",
+      "oracle": "Implemented fix source, regression source and retained fixed-suite output.",
+      "observed": "Upstream implemented the attester boundary and records SR-01 closed; retained suite records 64 passes.",
+      "status": "upstream_fix_source_and_historical_results_reviewed",
+      "evidence": [
+        {
+          "file": "CASE-STUDY.md"
+        },
+        {
+          "file": "SOURCES.json"
+        }
+      ],
+      "limits": "The attester remains trusted; current deployment and full app exploit chain were not revalidated."
+    }
+  ]
+}

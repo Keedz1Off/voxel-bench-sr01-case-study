@@ -1,28 +1,17 @@
-# Voxel Bench SR-01: recipe authorship capture
+# Voxel Bench SR-01: claiming someone else's recipe
 
-**ETHOnline 2026 security contribution.** The project credits Stefan for identifying SR-01 through AI-assisted contract review and local test work. The team implemented the fix and marks the finding closed.
+**Status:** publicly acknowledged finding, fixed upstream. My documented security contribution to **ETHOnline 2026**.
 
-**What went wrong:** knowing an unclaimed recipe ID was enough to register yourself as its author. A valid self-signature proved control of a wallet, not that the claimant created the recipe. Future crafts then credited the recorded author.
+- **Expected:** only an eligible crafter can register recipe authorship.
+- **Original behavior:** anyone knowing an unclaimed recipe ID could register first as its author. A self-signature proved wallet control, not recipe ownership.
+- **Impact:** future crafts could credit author royalties to the wrong address. Production loss was not established.
+- **Fix:** trusted-attester publication plus private craft-provenance checks. The attester remains trusted.
+- **Evidence:** preserved direct-path PoC, fixed regression source and a historical 64-pass Solidity suite. The self-signed variant has source/regression support, not a fresh attack execution here.
 
-**What changed:** both publication routes require a trusted attester; the agent checks its private craft records before relaying a claim, and the author signature remains required.
+## Evidence and details
 
-```mermaid
-flowchart LR
-    O["Observer learns an unclaimed ID"] --> C["Original: first claim records observer"]
-    C --> R["Future author royalties go to recorded address"]
-    A["Fixed: agent checks craft provenance"] --> T["Attester-only publication + author signature"]
-    T --> L["Permitted crafter is registered"]
-```
+[Boundary matrix](matrices/boundaries.json) · [Flow](FLOW.md) · [Case study](CASE-STUDY.md) · [Pinned sources](SOURCES.json)
 
-These are separate original and fixed flows. The attester remains trusted.
+[Upstream acknowledgement](https://github.com/ETH-GLOBAL-ONLINE/voxel-bench/blob/2734fc4e31a6763986a62d5bdf2704e770c1c71d/docs/CONTRACT_AUDIT.md#findings) · [Implemented fix](https://github.com/ETH-GLOBAL-ONLINE/voxel-bench/commit/ba067ec240835cbc9e03bb991e644b75a1f30eb6) · [File map](READING-GUIDE.md) · [Web3 portfolio](https://github.com/Keedz1Off/web3-security-portfolio).
 
-## Read in order
-
-1. [Flow and trust boundary](FLOW.md)
-2. [Full case study](CASE-STUDY.md)
-3. [Reading guide and evidence map](READING-GUIDE.md)
-4. [Pinned source and evidence inventory](SOURCES.json)
-
-[Project acknowledgement](https://github.com/ETH-GLOBAL-ONLINE/voxel-bench/blob/2734fc4e31a6763986a62d5bdf2704e770c1c71d/docs/CONTRACT_AUDIT.md#findings) · [Upstream fix](https://github.com/ETH-GLOBAL-ONLINE/voxel-bench/commit/ba067ec240835cbc9e03bb991e644b75a1f30eb6) · [Web3 portfolio](https://github.com/Keedz1Off/web3-security-portfolio)
-
-This entry reviews source and preserved historical results. No new target execution, current-chain validation, bounty payment, prize, CVE or production-loss claim is made.
+Historical local evidence and AI-assisted source review; no new target execution in this edit.
