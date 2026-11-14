@@ -1,21 +1,34 @@
 {
   "format": "matrix-first portfolio package",
-  "date": "2026-11-02",
-  "scope": "Documentation reorganisation; no new target tests",
+  "date": "2026-11-14",
+  "scope": "Boundary matrices, recorded evidence and offline checks",
   "evidence_snapshot": "8ed2b57c5e51dd266fcb24844027444c86b06186",
   "matrix_count": 2,
   "files": {
-    "matrices/AUTHORSHIP.json": {
-      "bytes": 3951,
-      "sha256": "c33936a89af7b32b3c7403fd018f34c41c4d710486cf77acb638d36157bc6b3f"
+    "evidence/source-index.json": {
+      "bytes": 2621,
+      "sha256": "6cc31c97584568cba11b9ff285c08540145e73005e04e9e7ef60966808263709"
     },
     "matrices/ATTESTER.json": {
-      "bytes": 1901,
-      "sha256": "569a7e767dcd4e7ef54ad6bef736c5825b808776f85811ed9d563ebf3cdfa261"
+      "bytes": 1935,
+      "sha256": "a0d11badea6aa98b24c6643858386e17a2cc0f5f2dfad714f574830d313c0e77"
+    },
+    "matrices/AUTHORSHIP.json": {
+      "bytes": 4024,
+      "sha256": "c8adefcb4eadd098348e7c0e7469f0eaf6b0f664dc4ab377be2ea8ae52f34629"
+    },
+    "matrices/boundaries.json": {
+      "bytes": 4551,
+      "sha256": "caff76bc73abc4b091ef746926d5822972ec7f635e57c15512622ea17cd2c7d7"
     },
     "README.md": {
-      "bytes": 1692,
-      "sha256": "a234adfda2e0d59431a139ab450b3a11671901e2c9cfcff5396e38139fbfea91"
+      "bytes": 2268,
+      "sha256": "68bb2a63b6a7356049708f0ad33590a8aa6c6e7c6cdba86029a5c3719e42a5f3"
+    },
+    "tests/test_recorded_evidence.py": {
+      "bytes": 906,
+      "sha256": "62db6825e965487b82f380708eba2df2ffc9a01acf6cc92df79648cac15c9afa"
     }
-  }
+  },
+  "boundary_index": "matrices/boundaries.json"
 }
