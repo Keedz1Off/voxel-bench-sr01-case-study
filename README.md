@@ -13,6 +13,7 @@
 | Open | What you will find |
 | --- | --- |
 | [Matrices](#matrices) | Read the authorship rule and the trusted-attester rule. |
+| [Flow](#flow) · [Testing pipeline](#testing-pipeline) | Follow author attribution and the checks on its historical evidence. |
 | [Source index](evidence/source-index.json) | Find the pinned revisions and the recorded upstream test result. |
 | [GitHub Actions](#github-actions) | Check the matrix links against the saved source index. |
 
@@ -26,9 +27,56 @@ Run the offline evidence checks from the repository root with Python 3.10 or lat
 python -B -m unittest discover -s tests -v
 ```
 
+## Flow
+
+```mermaid
+flowchart LR
+    Recipe["Recipe ID"] --> Claim["Authorship claim"]
+    Claim --> Author["Recorded recipe author"]
+    Author --> Credits["Attribution of future royalty credits"]
+```
+
+The [AUTHORSHIP matrix](matrices/AUTHORSHIP.json) describes the original attribution rule and observation. The [ATTESTER matrix](matrices/ATTESTER.json) describes the trusted publication boundary used by the fix.
+
+## Testing pipeline
+
+```mermaid
+flowchart TD
+    Rule["Authorship and attester rules"] --> Matrices["JSON matrix rows"]
+    Matrices --> References["Pinned original and fixed source references"]
+    References --> Evidence["Historical observations and regression results"]
+    Evidence --> Index["Saved source index"]
+    Matrices --> Check["Offline Python reference check"]
+    Index --> Check
+    Check --> Report["Read the finding, fix and remaining trust assumptions"]
+```
+
+| Part | Open |
+| --- | --- |
+| Rules and observations | [Boundary index](matrices/boundaries.json), [AUTHORSHIP](matrices/AUTHORSHIP.json) and [ATTESTER](matrices/ATTESTER.json) |
+| Historical source and test references | [Source index](evidence/source-index.json) |
+| Current CI assertion | [Offline Python test](tests/test_recorded_evidence.py) |
+
+Actions checks the recorded references. The 64-pass Solidity result belongs to the pinned historical suite linked from the source index.
+
 ## GitHub Actions
 
 Open [Case study checks](https://github.com/Keedz1Off/voxel-bench-sr01-case-study/actions/workflows/checks.yml) and click **Run workflow**. CI reads the matrix JSON and checks the saved evidence offline. The run saves a `check-results` log. Select **CD demo** to also download `verified-delivery` with the log, commit SHA and checksum after checks pass.
+
+### CI flow
+
+```mermaid
+flowchart TD
+    Trigger["Push, pull request or Run workflow"] --> Setup["Checkout commit and prepare Python"]
+    Setup --> Input["Read matrix JSON"]
+    Input --> Check["Check matrix links against source index"]
+    Check --> Log["Save check-results log"]
+    Check --> Result{"Checks passed?"}
+    Result -->|No| Fail["CI failed"]
+    Result -->|Yes| Pass["CI passed"]
+    Pass -->|"Manual run with CD demo enabled"| Bundle["Archive log, commit and checksum"]
+    Bundle --> Delivery["Save verified-delivery artifact"]
+```
 
 ### What happens in Actions
 
@@ -41,8 +89,6 @@ Open [Case study checks](https://github.com/Keedz1Off/voxel-bench-sr01-case-stud
 | CD demo | After a passing manual run, CI saves the log, commit SHA and SHA-256 checksum as `verified-delivery`. |
 
 [See the workflow file](.github/workflows/checks.yml). This job checks the material shipped in this repository offline.
-
-**Flow:** Recipe ID → authorship claim → recorded author → future royalty credits.
 
 ## Matrices
 
